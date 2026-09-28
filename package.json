@@ -1,0 +1,12 @@
+{
+  "name": "cptblt",
+  "version": "1.0.0",
+  "description": "CptblT — application web pédagogique pour apprendre les écritures comptables (PCG français). Site 100 % statique.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "python3 serve.py",
+    "check": "node tools/check.mjs"
+  },
+  "license": "MIT"
+}

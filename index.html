@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CptblT — Apprendre les écritures comptables</title>
+    <meta
+      name="description"
+      content="CptblT : application pédagogique pour apprendre et réviser les écritures comptables selon le Plan Comptable Général français, du niveau débutant aux cas complets."
+    />
+    <meta name="theme-color" content="#4f46e5" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%92%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Applique le thème mémorisé (ou la préférence système) avant le premier affichage : évite le « flash ».
+      (function () {
+        try {
+          var t = localStorage.getItem('cptblt.theme');
+          if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+
+    <header class="site-header">
+      <div class="header-top">
+        <a class="brand" href="#/cours" aria-label="CptblT — accueil">
+          <span class="brand-logo" aria-hidden="true">📒</span>
+          <span class="brand-text">
+            <strong>CptblT</strong>
+            <small>Apprendre &amp; réviser les écritures comptables</small>
+          </span>
+        </a>
+      </div>
+      <nav class="tabs" aria-label="Sections de l'application">
+        <ul class="tab-list">
+          <li><a class="tab" href="#/cours" data-tab="cours">Cours</a></li>
+          <li><a class="tab" href="#/exercices" data-tab="exercices">Exercices</a></li>
+          <li><a class="tab" href="#/plan" data-tab="plan">Plan de comptes</a></li>
+          <li><a class="tab" href="#/outils" data-tab="outils">Outils</a></li>
+          <li><a class="tab" href="#/memo" data-tab="memo">Aide-mémoire</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Passer en thème sombre" title="Basculer jour / nuit">🌙</button>
+      </nav>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section id="tab-cours" class="tab-panel" hidden></section>
+      <section id="tab-exercices" class="tab-panel" hidden></section>
+      <section id="tab-plan" class="tab-panel" hidden></section>
+      <section id="tab-outils" class="tab-panel" hidden></section>
+      <section id="tab-memo" class="tab-panel" hidden></section>
+    </main>
+
+    <datalist id="accounts-list"></datalist>
+
+    <footer class="site-footer">
+      <p>
+        <strong>CptblT</strong> — application pédagogique 100&nbsp;% statique, hors ligne après chargement. Les plans et schémas suivent le
+        Plan Comptable Général (à titre d'apprentissage). Votre progression est enregistrée uniquement dans ce navigateur.
+      </p>
+    </footer>
+
+    <noscript><p class="noscript">CptblT a besoin de JavaScript pour fonctionner.</p></noscript>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
